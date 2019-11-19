@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #f3f3f3;
+    }
+    header{
+        background-color: #868686;
+    }
+    .img1{
+        padding: 20px;
+    }
+    main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #f3f3f3;
+    }
+    footer{
+        background-color: #868686;
+    }
+    .headertop{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        color: white;
+    }
+    .divheader{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 100px;
+        background-color: #222222;
+    }
+    .divfooter{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 100px;
+    }
+    .img2{
+        width: 50%;
+        height: 50%;
+        box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    }
+    p{
+        padding: 100px 350px;
+    }
+    a{
+        text-decoration: none;
+        color: white;
+    }
+    a:hover{
+        color: black;
+    }
+    h1{
+        font-size: 50px;
+    }
+    aside{
+        background: #999999;
+        position: fixed;
+    }
+    li{
+        list-style-type: none;
+        margin: 50px;
+    }
+    li a{
+        color: black;
+    }
+    li a:hover{
+        color: ivory;
+    }
+    .lienaside{
+        font-size: 20px;
+        padding : 10px;
+    }
+
+
+
+
+</style>
+<body>
+<header>
+    <div class="headertop" id="headertop">
+        <h1>{{ title }}</h1>
+        <img src="{{ img1 }}" alt="" class="img1">
+        <h1>{{ title }}</h1>
+    </div>
+    <div class="divheader">
+        <div><a href="#headertop">{{ header }}</a></div>
+        <div><a href="#img2">{{ main }}</a></div>
+        <div><a href="#divfooter">{{ footer }}</a></div>
+    </div>
+</header>
+{% if sidebar == true %} //On commence notre condition (if) que l'on affichera que si c'est "true".
+<aside>
+    {% for tag in tags %} //On crée une boucle for ou l'on demande d'afficher les éléments de l'array 'tags' en variable temporaire 'tag'
+    <p class="lienaside"><a href="https://www.google.fr" target="_blank">{{ tag }}</a></p>
+    {% endfor %} //On ferme notre boucle for.
+</aside>
+{% endif %} // le "endif" pour terminer la condition.
+<main>
+    <h2>Article 1</h2>
+    <img src="{{ img2 }}" alt="" class="img2" id="img2">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus alias aspernatur at cum eveniet facere facilis impedit ipsam ipsum laborum, libero necessitatibus officiis, possimus quaerat quis sequi sit ullam veritatis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam eaque explicabo minus molestiae nihil officia pariatur quidem recusandae vel voluptas. Accusantium omnis quae reprehenderit veniam. Ad at atque autem consequuntur delectus dolore eos expedita impedit iusto, nihil nostrum numquam officiis porro similique temporibus vel veniam. Asperiores excepturi facilis harum laudantium necessitatibus, non tenetur? Ad alias aliquam architecto delectus ducimus eligendi facilis itaque magnam, magni minima molestiae molestias mollitia non praesentium provident quaerat, quo suscipit totam ut voluptatum? Accusamus cum dolor, error eum excepturi facilis fugiat itaque minus molestias nisi nostrum obcaecati odio omnis provident quia ratione temporibus vel veritatis voluptatibus.</p>
+    {{ test }}
+</main>
+<footer>
+    <div class="divfooter" id="divfooter">
+        <div><a href="https://www.google.fr" target="_blank">{{ lien }}</a></div>
+        <div><a href="https://www.google.fr" target="_blank">{{ lien }}</a></div>
+        <div><a href="https://www.google.fr" target="_blank">{{ lien }}</a></div>
+    </div>
+</footer>
+</body>
+
+</html>
